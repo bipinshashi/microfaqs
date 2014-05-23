@@ -1,23 +1,59 @@
-<div class="home-title-header">
+<div class="home-title-header" ng-controller="homeCtrl">
+
+
+	<!-- Modal -->
+	<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	  <div class="modal-dialog">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+	        <h4 class="modal-title" id="myModalLabel">Choose atleast one category</h4>
+	      </div>
+	      <div class="modal-body">
+	        <ul class="list-group">
+					  <li class="list-group-item">Eating out</li>
+					  <li class="list-group-item">Drinks</li>
+					  <li class="list-group-item">Best of</li>
+					  <li class="list-group-item">Health/lifestyle</li>
+					  <li class="list-group-item">Party</li>
+					  <li class="list-group-item">Other</li>
+					</ul>
+					<!-- <label>Add Tags</label><input id="tags-input-field" type="text" maxlength="250"> -->
+	      </div>
+	      <div class="modal-footer">
+	        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+	        <button type="button" class="btn btn-primary">Next</button>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+
 	<div class="jumbotron">
 		<div class="container">
 			<h1>&micro;FAQs</h1>
 			<p>Your guide to the cities' best kept secrets.</p>
 		</div>
 	</div>
-	
-	<div class="container">
+	<button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+	  Ask a question
+	</button>
+	<div class="container" ng-repeat="card in cards">
 		<div class="col-md-9">
-		<div class="col-xs-12" style="background-color:#344d59; height:200px; width:100%; box-shadow: 10px 10px 5px rgba(0,0,0,0.2);border-radius:6px; margin: 0 0 20px 0;">
-			<h1 style="color:white; margin:15px 15px 0 15px ">Q. Your First Question?</h1>
+			<div class="col-xs-12" style="background-color:#344d59; height:200px; width:100%; box-shadow: 10px 10px 5px rgba(0,0,0,0.2);border-radius:6px; margin: 0 0 20px 0;">
+				<h1 style="color:white; margin:15px 15px 0 15px ">Q. {{card.question.title}}</h1>
 
-		</div>
-		<div class="col-xs-4" style="background-color:#344d59; height:200px; width: 100%; box-shadow: 10px 10px 5px rgba(0,0,0,0.2);border-radius:6px;margin: 0 0 20px 0;">
-		</div>
-
-		<div class="col-md-3">
-
+			</div>
+			<div class="col-xs-4" style="background-color:#344d59; height:200px; width: 100%; box-shadow: 10px 10px 5px rgba(0,0,0,0.2);border-radius:6px;margin: 0 0 20px 0;">
+			</div>
 		</div>	
 	</div>
 	
 </div>
+
+<script type="text/javascript">
+$(document).ready(function () {
+    $("#tags-input-field").tokenInput("/api/questions/tags",{"theme":"facebook", "zindex":9999});
+    // $("#tags-input-field").tokenInput("add", {id: "12", name: "test"});
+
+});
+</script>

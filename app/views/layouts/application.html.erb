@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="microfaqs">
 <head>
   <title>Microfaqs</title>
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
@@ -20,7 +20,7 @@
   </div>
   <div class="navbar-collapse collapse navbar-responsive-collapse">
     <ul class="nav navbar-nav navbar-right">
-	  <li><a href="#">Ask A Question</a></li>
+	  <!-- <li><a href="#">Ask A Question</a></li> -->
     <%if user_signed_in?%>
       <li><a href="#">Logged in as <%=current_user.username%></a></li>
       <li><a href="/users/sign_out" data-method="delete" rel="nofollow">Log out</a></li>
