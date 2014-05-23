@@ -11,6 +11,17 @@ Microfaqs::Application.routes.draw do
 
   resources :questions
 
+  namespace 'api' do 
+    resources :questions do 
+      collection do
+        get 'trending'
+        get 'tag_cloud'
+        get 'filter_by_tag'
+        get 'tags'
+      end
+    end
+  end
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

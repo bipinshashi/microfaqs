@@ -1,64 +1,105 @@
-<div class="title-header" >
-	<div class="jumbotron">
-		<div class="container">
-			<h1>&micro;FAQs</h1>
-			<p>Your guide to the cities' best kept secrets.</p>
+	<div class="title-header" >
+		<div class="jumbotron">
+			<div class="container">
+				<h1>&micro;FAQs</h1>
+				<p>Your guide to the cities best kept secrets.</p>
+			</div>
 		</div>
 	</div>
-</div>
 
-<div class="container main-container">
-	<div class="col-md-8">
-
-  <div class="col-xs-12" style="background-color:#ecf0f1; width:100%; box-shadow: 10px 10px 5px rgba(0,0,0,0.2);border-radius:6px; margin: 0 0 20px 0; padding: 2px 15px;">
-
-   <div style="text-align:center;" class="pull-left">
-    <a href="#" style="color:white;display:block; margin:2px 5px;"><span class="glyphicon glyphicon-chevron-up" style="color:#27AE60;"></span></a>
-    <span class="label label-success" style="font-size:16px">3</span>
-    <a href="#" style="color:white;display:block; margin:2px 5px;"><span class="glyphicon glyphicon-chevron-down" style="color:red"></span></a> 
-   </div>
-   <div class="pull-left">
-   <h3 style="color:#4f4f4f; margin:20px 0px 0 15px; ">Q. Your First Question?</h3>
-   </div>
-
-
-   <div class="clearfix"></div>
-
-   <div style="text-align:center;padding:0 0;" class="pull-left">
-    <a href="#" style="color:white;display:block; margin:2px 5px;"><span class="glyphicon glyphicon-chevron-up" style="color:#27AE60;"></span></a>
-    <span class="label label-success" style="font-size:16px">3</span>
-    <a href="#" style="color:white;display:block; margin:2px 5px;"><span class="glyphicon glyphicon-chevron-down" style="color:red"></span></a>  
-   </div>
-   <div class="pull-left">
-   <h3 style="color:#4f4f4f; margin:25px 0px 0 15px; ">A. Answer your first question</h3>
-   </div>
-
-   <div class="clearfix"></div>
-
-   <div style="padding-bottom:5px;">
-    <span class="label label-default" style="font-size:13px">#food</span>
-    <span class="label label-default" style="font-size:13px">#drinks</span>
-    <span class="label label-default" style="font-size:13px">#cake</span>
-   </div>
-
-  </div>
-  
- </div>
-	
-	<div class="col-md-4">
-		<div class="clearfix"></div>
-		<div class="tag-cloud">
-			<span class="cloud-2">DubaiMall</span>
-			<span class="cloud-7">EmiratesMall</span>
-			<span class="cloud-6">BurjKhalifa</span>
-			<span class="cloud-4">BurjAlArab</span>
-			<span class="cloud-1">DubaiMarina</span>
-			<span class="cloud-5">DesertSafari</span>
-			<span class="cloud-3">ArabianNights</span>
-			<span class="cloud-7">GoldsGym</span>
-			<span class="cloud-6">Starbucks</span>
-			<span class="cloud-4">CaribouCoffee</span>
-
+	<div class="container main-container" ng-controller="homeCtrl">
+				<!-- Modal -->
+		<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		  <div class="modal-dialog">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+		        <h4 class="modal-title" id="myModalLabel">Choose atleast one category</h4>
+		      </div>
+		      <div class="modal-body">
+		        <!-- <ul class="list-group">
+						  <li class="list-group-item">Eating out</li>
+						  <li class="list-group-item">Drinks</li>
+						  <li class="list-group-item">Best of</li>
+						  <li class="list-group-item">Health/lifestyle</li>
+						  <li class="list-group-item">Party</li>
+						  <li class="list-group-item">Other</li>
+						</ul> -->
+						<label>Your Question: </label><input id="question-input-field" type="text" maxlength="250">
+						<label>Add Tags</label><input id="tags-input-field" type="text">
+		      </div>
+		      <div class="modal-footer">
+		        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+		        <button type="button" class="btn btn-primary">Next</button>
+		      </div>
+		    </div>
+		  </div>
 		</div>
-	</div>	
-</div>
+
+		<div class="col-md-8">
+
+	  <div ng-repeat="card in cards" class="col-xs-12" style="background-color:#ecf0f1; width:100%; box-shadow: 10px 10px 5px rgba(0,0,0,0.2);border-radius:6px; margin: 0 0 20px 0; padding: 2px 15px;">
+
+	   <div style="text-align:center;" class="pull-left">
+	    <a href="#" style="color:white;display:block; margin:2px 5px;"><span class="glyphicon glyphicon-chevron-up" style="color:#27AE60;"></span></a>
+	    <span class="label label-success" style="font-size:16px">3</span>
+	    <a href="#" style="color:white;display:block; margin:2px 5px;"><span class="glyphicon glyphicon-chevron-down" style="color:red"></span></a> 
+	   </div>
+	   <div class="pull-left">
+	   <h3 style="color:#4f4f4f; margin:20px 0px 0 15px; "> {{card.question.title}}</h3>
+	   </div>
+
+
+	   <div class="clearfix"></div>
+
+	   <div style="text-align:center;padding:0 0;" class="pull-left">
+	    <a href="#" style="color:white;display:block; margin:2px 5px;"><span class="glyphicon glyphicon-chevron-up" style="color:#27AE60;"></span></a>
+	    <span class="label label-success" style="font-size:16px">3</span>
+	    <a href="#" style="color:white;display:block; margin:2px 5px;"><span class="glyphicon glyphicon-chevron-down" style="color:red"></span></a>  
+	   </div>
+	   <div class="pull-left">
+	   <h3 style="color:#4f4f4f; margin:25px 0px 0 15px; "> {{card.answer.title}}</h3>
+	   </div>
+
+	   <div class="clearfix"></div>
+
+	   <div style="padding-bottom:5px;">
+	    	<span ng-repeat="tag in card.tags" href class="label label-default" style="font-size:13px;margin-right:5px"><span ng-click="load_questions_by_tag(tag)">#{{tag}}</span></span>
+	    <!-- <span class="label label-default" style="font-size:13px">#drinks</span>
+	    <span class="label label-default" style="font-size:13px">#cake</span> -->
+	   </div>
+
+	  </div>
+	  
+	 </div>
+		
+		<div class="col-md-4">
+			<div class="clearfix"></div>
+			<button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+		  	Ask a question
+			</button>
+			<div class="tag-cloud">
+				<span ng-repeat="tag in tag_cloud" ng-class="tag.class" style="margin-right:5px">
+					<span href="#" ng-click="load_questions_by_tag(tag.name)">
+						{{tag.name}}
+					</span>
+				</span>
+				<!-- <span class="cloud-7">EmiratesMall</span>
+				<span class="cloud-6">BurjKhalifa</span>
+				<span class="cloud-4">BurjAlArab</span>
+				<span class="cloud-1">DubaiMarina</span>
+				<span class="cloud-5">DesertSafari</span>
+				<span class="cloud-3">ArabianNights</span>
+				<span class="cloud-7">GoldsGym</span>
+				<span class="cloud-6">Starbucks</span>
+				<span class="cloud-4">CaribouCoffee</span> -->
+
+			</div>
+		</div>	
+	</div>
+
+<script type="text/javascript">
+$(document).ready(function () {
+    $("#tags-input-field").tokenInput("/api/questions/tags", {"theme":"facebook"});
+});
+</script>
