@@ -9,7 +9,7 @@ div.content-wrapper { padding-bottom: 20px; }
 div.tag-cloud {
 	border-radius: 4px;
 	font-weight: 300;
-	background-color: #ecf0f1;
+	background-color: #fff;
 	padding: 8px 10px;
 	color: #009ca8;
 	border: 1px solid #ddd;
@@ -31,3 +31,5 @@ div.tag-cloud span.cloud-4 { font-size: 18px; }
 div.tag-cloud span.cloud-5 { font-size: 20px; }
 div.tag-cloud span.cloud-6 { font-size: 22px; }
 div.tag-cloud span.cloud-7 { font-size: 24px; }
+
+div.line-separator { height:2px;background-color:#f1f1f1; }
