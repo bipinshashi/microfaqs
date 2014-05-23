@@ -34,6 +34,7 @@ end
 
 gem 'devise'
 gem 'acts-as-taggable-on'
+gem 'rails_admin'
 
 
 # Use ActiveModel has_secure_password
