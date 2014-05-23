@@ -1,4 +1,4 @@
 microfaqs
 =========
 
-FAQ's for the locals, by the locals
+Your guide to the cities best kept secrets!
