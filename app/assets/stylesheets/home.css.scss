@@ -1,3 +1,16 @@
 // Place all the styles related to the home controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+div.jumbotron {
+	background: url(image_path('dubai-skyline.png'));
+	background-position: bottom right;
+	background-repeat: no-repeat;
+	background-size: 59%;
+	background-color: #ecf0f1;
+	padding-top: 90px; padding-bottom: 60px;
+}
+
+@media(min-width:1600px){
+	div.jumbotron { background-size: 43%; }
+}

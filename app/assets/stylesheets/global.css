@@ -1,1 +1,28 @@
+body { background-color: #1ABC9C; }
 div.navbar { margin-bottom:0px; }
+div.title-header { 
+	margin-top: 60px;
+}
+
+div.content-wrapper { padding-bottom: 20px; }
+
+div.tag-cloud {
+	border-radius: 4px;
+	font-weight: 300;
+	background-color: #ecf0f1;
+	padding: 8px 10px;
+	color: #009ca8;
+	border: 1px solid #ddd;
+	box-shadow: 0px 2px 4px 0 rgba(0,0,0,0.20);
+	letter-spacing:0.2px;
+}
+
+div.tag-cloud  span { }
+
+div.tag-cloud span.cloud-1 { font-size: 12px; }
+div.tag-cloud span.cloud-2 { font-size: 14px; }
+div.tag-cloud span.cloud-3 { font-size: 16px; }
+div.tag-cloud span.cloud-4 { font-size: 18px; }
+div.tag-cloud span.cloud-5 { font-size: 20px; }
+div.tag-cloud span.cloud-6 { font-size: 22px; }
+div.tag-cloud span.cloud-7 { font-size: 24px; }
