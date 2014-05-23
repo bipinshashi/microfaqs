@@ -13,13 +13,13 @@ div.tag-cloud {
 	padding: 8px 10px;
 	color: #009ca8;
 	border: 1px solid #ddd;
-	box-shadow: 10px 10px 5px rgba(0,0,0,0.2);
-	letter-spacing:0.2px;
 
+	letter-spacing:0.2px;
+	text-align:center;
 }
 
 @media(min-width:768px){
-	div.tag-cloud{ 	position: fixed; }
+	div.tag-cloud{ position: fixed; width: 27%;}
 }
 
 div.tag-cloud  span { }
