@@ -30,6 +30,13 @@ class Api::QuestionsController < ApplicationController
 		render :json => tags
 	end
 
+	def submit
+		question = Question.create(:title => params[:question])
+		question.tag_list.add(params[:tags])
+		question.save
+		render :json => {:status => 200}
+	end
+
 
 	private
 	def card_format(questions)

@@ -25,12 +25,12 @@
 						  <li class="list-group-item">Party</li>
 						  <li class="list-group-item">Other</li>
 						</ul> -->
-						<label>Your Question: </label><input id="question-input-field" type="text" maxlength="250">
-						<label>Add Tags</label><input id="tags-input-field" type="text">
+						<input type="text" class="form-control" ng-model="question_title" placeholder="Your question here..."><br/><br/>
+						<label>Add Tags</label><input id="tags-input-field" type="text" placeholder="Add tags">
 		      </div>
 		      <div class="modal-footer">
 		        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-		        <button type="button" class="btn btn-primary">Next</button>
+		        <button type="button" class="btn btn-primary" ng-click="submit_question()">Submit</button>
 		      </div>
 		    </div>
 		  </div>
@@ -42,7 +42,7 @@
 
 	   <div style="text-align:center;" class="pull-left">
 	    <a href="#" style="color:white;display:block; margin:2px 5px;"><span class="glyphicon glyphicon-chevron-up" style="color:#27AE60;"></span></a>
-	    <span class="label label-success" style="font-size:16px">3</span>
+	    <span class="label label-success" style="font-size:16px">{{card.question.upvote - card.question.downvote}}</span>
 	    <a href="#" style="color:white;display:block; margin:2px 5px;"><span class="glyphicon glyphicon-chevron-down" style="color:red"></span></a> 
 	   </div>
 	   <div class="pull-left">
@@ -50,18 +50,20 @@
 	   </div>
 
 
-	   <div class="clearfix"></div>
+	   	<div class="clearfix"></div>
+	  	<div ng-if="card.answer!=undefined">
+		   <div style="text-align:center;padding:0 0;" class="pull-left">
+		    <a href="#" style="color:white;display:block; margin:2px 5px;"><span class="glyphicon glyphicon-chevron-up" style="color:#27AE60;"></span></a>
+		    <span class="label label-success" style="font-size:16px">{{card.answer.upvote - card.answer.downvote}}</span>
+		    <a href="#" style="color:white;display:block; margin:2px 5px;"><span class="glyphicon glyphicon-chevron-down" style="color:red"></span></a>  
+		   </div>
+		   <div class="pull-left">
+		   <h3 style="color:#4f4f4f; margin:25px 0px 0 15px; "> {{card.answer.title}}</h3>
+		   </div>
 
-	   <div style="text-align:center;padding:0 0;" class="pull-left">
-	    <a href="#" style="color:white;display:block; margin:2px 5px;"><span class="glyphicon glyphicon-chevron-up" style="color:#27AE60;"></span></a>
-	    <span class="label label-success" style="font-size:16px">3</span>
-	    <a href="#" style="color:white;display:block; margin:2px 5px;"><span class="glyphicon glyphicon-chevron-down" style="color:red"></span></a>  
-	   </div>
-	   <div class="pull-left">
-	   <h3 style="color:#4f4f4f; margin:25px 0px 0 15px; "> {{card.answer.title}}</h3>
-	   </div>
-
-	   <div class="clearfix"></div>
+		   <div class="clearfix"></div>
+			</div>
+			
 
 	   <div style="padding-bottom:5px;">
 	    	<span ng-repeat="tag in card.tags" href class="label label-default" style="font-size:13px;margin-right:5px"><span ng-click="load_questions_by_tag(tag)">#{{tag}}</span></span>
@@ -100,6 +102,8 @@
 
 <script type="text/javascript">
 $(document).ready(function () {
-    $("#tags-input-field").tokenInput("/api/questions/tags", {"theme":"facebook"});
+    $("#tags-input-field").tokenInput("/api/questions/tags",{"theme":"facebook", "zindex":9999});
+    // $("#tags-input-field").tokenInput("add", {id: "12", name: "test"});
+
 });
 </script>

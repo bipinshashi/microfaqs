@@ -24,6 +24,19 @@ var homeCtrl = ['$scope','$http', '$timeout', '$modal', function($scope,$http,$t
 			});
 		};
 
+		$scope.submit_question = function(){
+			console.log($scope.question_title);
+			$('#myModal').modal('hide');
+			var tag_list = [];
+			$(".token-input-token-facebook p").map(function(){
+				tag_list.push($(this).html());
+			});
+			console.log(tag_list);
+			$http.post('/api/questions/submit',{question: $scope.question_title, tags: tag_list}).success(function(data) {
+				$scope.load_questions();
+			});
+		}
+
 
 		$scope.load_questions();
 		$scope.load_tag_cloud();

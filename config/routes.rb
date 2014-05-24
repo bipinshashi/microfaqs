@@ -18,6 +18,7 @@ Microfaqs::Application.routes.draw do
         get 'tag_cloud'
         get 'filter_by_tag'
         get 'tags'
+        post 'submit'
       end
     end
   end
