@@ -19,6 +19,7 @@ Microfaqs::Application.routes.draw do
         get 'filter_by_tag'
         get 'tags'
         post 'submit'
+        post 'submit_answer'
       end
     end
   end

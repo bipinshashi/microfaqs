@@ -37,7 +37,46 @@ var homeCtrl = ['$scope','$http', '$timeout', '$modal', function($scope,$http,$t
 			});
 		}
 
+		$scope.vote = function(type,object){
 
-		$scope.load_questions();
+			// $http.post('/api/questions/vote_answer',{answer_id: answer.id, type:type}).success(function(data) {
+				// console.log(data);
+				if (type == 'up') {
+					if(!object.upvoted){
+						if(object.voted == true)
+							object.upvote += 2;
+						else
+							object.upvote += 1;
+						object.upvoted = true;
+						object.downvoted = false;
+					}
+				}else{
+					if(!object.downvoted){
+						if(object.voted == true)
+							object.downvote += 2;
+						else
+							object.downvote += 1;
+						object.downvoted = true;
+						object.upvoted = false;
+					}
+				}
+				object.voted = true;
+			// });
+
+		};
+
+		function getParameterByName(name) {
+	    name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+	    var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+	        results = regex.exec(location.search);
+	    return results == null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+		}
+
+		if (/[?&]tag=/.test(location.href) == false) {
+			$scope.load_questions();
+		}else{
+			var tag = getParameterByName("tag");
+			$scope.load_questions_by_tag(tag);
+		};
 		$scope.load_tag_cloud();
 }];

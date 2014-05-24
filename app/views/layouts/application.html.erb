@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html ng-app="microfaqs">
 <head>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Microfaqs</title>
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
@@ -16,11 +18,10 @@
       <span class="icon-bar"></span>
       <span class="icon-bar"></span>
     </button>
-    <a class="navbar-brand" href="/">&micro;FAQs</a>
+    <a class="navbar-brand" href="/" target="_self">&micro;FAQs</a>
   </div>
   <div class="navbar-collapse collapse navbar-responsive-collapse">
     <ul class="nav navbar-nav navbar-right">
-	  <!-- <li><a href="#">Ask A Question</a></li> -->
     <%if user_signed_in?%>
       <li><a href="#">Logged in as <%=current_user.username%></a></li>
       <li><a href="/users/sign_out" data-method="delete" rel="nofollow">Log out</a></li>

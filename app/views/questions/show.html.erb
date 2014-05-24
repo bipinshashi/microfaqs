@@ -1,1 +1,95 @@
-Dummy file!!!
+<div class="container main-container" style="margin-top:80px;" ng-controller="showCtrl">
+	<div class="col-md-8" ng-init="card = <%=@card%>; question=card.question" >
+
+	<div class="col-xs-12" style="margin: 0 0 3px 0; padding: 2px 0;">
+		<table>
+		<tr>
+			<td valign="top">
+			<div style="display:inline-block;text-align:center;margin-right:10px;">
+				<a style="color:white;display:block;margin:2px 5px -3px 5px;"><span class="glyphicon glyphicon-chevron-up" style="font-size:22px;color:#F69140;" ng-click="vote('up',question)" ></span></a>
+				<span class="label" ng-class="{'label-default': !question.voted, 'label-success': question.voted}" style="font-size:16px;">{{question.upvote - question.downvote}}</span>
+				<a style="color:white;display:block; margin:2px 5px 0 5px;"><span class="glyphicon glyphicon-chevron-down" style="font-size:22px;color:#F69140" ng-click="vote('down',question)" ></span></a> 
+			</div>
+			</td>
+
+			<td style="width:100%;">
+			<div style="display:block;background-color:#ffffff; padding: 2px 15px;width:100%;">
+				<table>
+					<tr>
+						<td colspan="2">
+						<div style="display:inline-block;">
+							<h3 style="color:#9b9b9b; margin:10px 0;font-size:22px;font-weight:500;">{{question.title}}</h3>
+						</div>
+						</td>
+					</tr>
+					
+				</table>
+		   
+			   	<div style="padding-bottom:5px;">
+						<span class="label label-default" ng-repeat="tag in card.tags" style="font-size:13px;background-color:#9b9b9b;margin-right: 5px;cursor: pointer">
+							<a ng-href="/?tag={{tag}}" target="_self" style="color:#fff;text-decoration: none;">
+								{{tag}}
+							</a>
+						</span>
+				  </div>
+			</div>
+			</td>
+		</tr>
+		</table>
+	</div>
+	
+	<div class="col-xs-12" style="padding:0 0 0 42px;">
+		<div style="background-color:#fff; width:100%; margin: 0 0 10px 0; padding: 2px 15px; box-shadow: 0 3px 0 rgba(0,0,0,0.30);"  ng-repeat="answer in card.answers">
+		
+		<table>
+			<tr>
+				<td>
+				<div style="display:inline-block;text-align:center">
+					<a style="color:white;display:block;margin:2px 5px -5px 5px;"><span class="glyphicon glyphicon-chevron-up" style="font-size:22px;color:#F69140;" ng-click="vote('up',answer)" type="_self"></span></a>
+					<span class="label" ng-class="{'label-default': !answer.voted, 'label-success': answer.voted}" style="font-size:12px">{{answer.upvote - answer.downvote}}</span>
+					<a style="color:white;display:block; margin:0 5px 0 5px;"><span class="glyphicon glyphicon-chevron-down" style="font-size:22px;color:#F69140" ng-click="vote('down',answer)" type="_self"></span></a> 
+				</div>
+				</td>
+				<td>
+				<div style="display:inline-block;">
+					<h3 style="color:#9b9b9b; margin:10px 0 10px 13px;font-size:18px">{{answer.title}}</h3>
+				</div>
+				</td>
+			</tr>
+		</table>
+		
+		<div class="line-separator"></div>
+		
+		</div>
+
+	</div>
+	
+	<%if current_user%>
+	<div class="col-xs-12" style="padding:0 0 0 42px;">
+		<div>
+			<form>
+				<input type="text" id="" ng-model="user_answer" class="form-control input-lg" style="border-radius:0" placeholder="Add your answer..."/>
+			</form>
+		</div>
+		<div class="col-xs-12" style="padding: 10px 0;">
+			<form>
+				<button type="submit" class="btn btn-primary" style="background-color:#F69140;border-color:#F69140;" ng-click="submit_answer()">Submit</button>
+			</form>
+		</div>
+	</div>
+	<%end%>
+	
+	
+  
+	</div>
+	<div class="col-md-4">
+		<div class="clearfix"></div>
+		<div class="tag-cloud">
+			<span ng-repeat="tag in tag_cloud" ng-class="tag.class" style="margin-right:5px; cursor: pointer">
+				<a ng-href="/?tag={{tag.name}}" target="_self">
+					{{tag.name}}
+				</a>
+			</span>
+		</div>
+	</div>	
+</div>

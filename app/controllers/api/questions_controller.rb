@@ -37,6 +37,12 @@ class Api::QuestionsController < ApplicationController
 		render :json => {:status => 200}
 	end
 
+	def submit_answer
+		question = Question.find(params[:question_id])
+		answer = Answer.create(:title => params[:answer_title], :question_id => params[:question_id], :user_id => current_user.id, :upvote => 0, :downvote => 0)
+		render :json => {:status => 200, :answer => answer}
+	end
+
 
 	private
 	def card_format(questions)

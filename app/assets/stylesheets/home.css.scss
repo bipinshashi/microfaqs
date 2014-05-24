@@ -7,9 +7,12 @@ div.jumbotron {
 	background-position: bottom right;
 	background-repeat: no-repeat;
 	background-size: 59%;
-	background-color: #ecf0f1;
+	background-color: #F69140;
 	padding-top: 90px; padding-bottom: 60px;
+	color: #fff;
 }
+
+div.jumbotron h1, div.jumbotron p { font-weight: 800 !important; }
 
 @media(min-width:1600px){
 	div.jumbotron { background-size: 43%; }
