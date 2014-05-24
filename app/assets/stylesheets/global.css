@@ -19,7 +19,14 @@ div.tag-cloud {
 }
 
 @media(min-width:768px){
-	div.tag-cloud{ position: fixed; width: 27%;}
+	div.tag-cloud{ position: fixed; width: 27%; top:445px;}
+	div.tag-cloud.question { top: auto; }
+}
+
+button#btn-question { width: 100%; }
+
+@media(min-width:768px){
+	button#btn-question { position: fixed; width: 27%; top:395px;}
 }
 
 div.tag-cloud  span { }

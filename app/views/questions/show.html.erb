@@ -5,10 +5,14 @@
 		<table>
 		<tr>
 			<td valign="top">
-			<div style="display:inline-block;text-align:center;margin-right:10px;">
-				<a style="color:white;display:block;margin:2px 5px -3px 5px;"><span class="glyphicon glyphicon-chevron-up" style="font-size:22px;color:#F69140;" ng-click="vote('up',question)" ></span></a>
+			<div style="display:inline-block;text-align:center;margin-right:0px; margin-left:-10px;">
+				<a style="color:white;display:block;margin:0px 0 -16px 0px;">
+				<i class="fa fa-sort-up fa-fw" style="font-size:40px;color:#F69140;" ng-click="vote('up',question)"></i>
+
+				</a>
 				<span class="label" ng-class="{'label-default': !question.voted, 'label-success': question.voted}" style="font-size:16px;">{{question.upvote - question.downvote}}</span>
-				<a style="color:white;display:block; margin:2px 5px 0 5px;"><span class="glyphicon glyphicon-chevron-down" style="font-size:22px;color:#F69140" ng-click="vote('down',question)" ></span></a> 
+				<a style="color:white;display:block; margin:-16px 0 0 0;">
+				<i class="fa fa-sort-down fa-fw" style="font-size:40px;color:#F69140;" ng-click="vote('down',question)"></i></a> 
 			</div>
 			</td>
 
@@ -45,9 +49,15 @@
 			<tr>
 				<td>
 				<div style="display:inline-block;text-align:center">
-					<a style="color:white;display:block;margin:2px 5px -5px 5px;"><span class="glyphicon glyphicon-chevron-up" style="font-size:22px;color:#F69140;" ng-click="vote('up',answer)" type="_self"></span></a>
+					<a style="color:white;display:block;margin:0px 0px -16px 0px;">
+
+					<i class="fa fa-sort-up fa-fw" style="font-size:40px;color:#F69140;" ng-click="vote('up',answer)" type="_self" ></i>
+
+					</a>
 					<span class="label" ng-class="{'label-default': !answer.voted, 'label-success': answer.voted}" style="font-size:12px">{{answer.upvote - answer.downvote}}</span>
-					<a style="color:white;display:block; margin:0 5px 0 5px;"><span class="glyphicon glyphicon-chevron-down" style="font-size:22px;color:#F69140" ng-click="vote('down',answer)" type="_self"></span></a> 
+					<a style="color:white;display:block; margin:-16px 0 0 0;">
+					<i class="fa fa-sort-down fa-fw" style="font-size:40px;color:#F69140;" ng-click="vote('down',answer)" type="_self" ></i>
+						</a> 
 				</div>
 				</td>
 				<td>
@@ -84,7 +94,7 @@
 	</div>
 	<div class="col-md-4">
 		<div class="clearfix"></div>
-		<div class="tag-cloud">
+		<div class="tag-cloud question">
 			<span ng-repeat="tag in tag_cloud" ng-class="tag.class" style="margin-right:5px; cursor: pointer">
 				<a ng-href="/?tag={{tag.name}}" target="_self">
 					{{tag.name}}
