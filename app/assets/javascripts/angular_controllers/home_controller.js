@@ -1,4 +1,4 @@
-angular.module('microfaqs', ['ui.bootstrap']);
+angular.module('microfaqs', ['ui.bootstrap','ngTouch']);
 var homeCtrl = ['$scope','$http', '$timeout', '$modal', function($scope,$http,$timeout,$modal){
     $http.defaults.headers.post['X-CSRF-TOKEN']= $('meta[name="csrf-token"]').attr('content');
 		$scope.cards = [];

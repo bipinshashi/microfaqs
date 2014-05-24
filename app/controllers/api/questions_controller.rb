@@ -8,7 +8,7 @@ class Api::QuestionsController < ApplicationController
 	end
 
 	def tag_cloud
-		tag_cloud = Question.tag_counts.first(10)
+		tag_cloud = Question.tag_counts.first(20)
 		formatted_tag_cloud = []
 		tag_cloud.each_with_index { |t,i|
 			formatted_tag_cloud << {:class => "cloud-#{i+1}", :name => t.name}
