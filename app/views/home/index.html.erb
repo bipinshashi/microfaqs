@@ -22,20 +22,21 @@
 		      </div>
 		      <div class="modal-footer">
 		        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-		        <button type="button" class="btn btn-primary" ng-click="submit_question()">Submit</button>
+		        <button type="button" class="btn btn-primary" ng-click="submit_question()" style="background-color:#F69140;color:#ffffff;border-color:#F69140;">Submit</button>
 		      </div>
 		    </div>
 		  </div>
 		</div>
 	<div class="col-md-8">
+		<h2 style="color:#ffffff;margin-top:0px;">Trending Questions</h2>
 		<div class="col-xs-12" ng-repeat="card in cards" style="margin: 0 0 10px 0; padding: 2px 0;">
 			<table>
 			<tr>
 				<td valign="top">
 				<div style="display:inline-block;text-align:center;margin-right:10px;">
-					<a style="color:white;display:block;margin:2px 5px -3px 5px;"><span class="glyphicon glyphicon-chevron-up" style="font-size:22px;color:#F69140;" ng-click="vote('up',card.question)"></span></a>
+					<a style="color:white;display:block;margin:0 0 -16px 0;"><i class="fa fa-sort-up fa-fw" style="font-size:40px;color:#F69140;" ng-click="vote('up',card.question)"></i></a>
 					<span class="label" ng-class="{'label-default': !card.question.voted, 'label-success': card.question.voted}" style="font-size:16px;">{{card.question.upvote - card.question.downvote}}</span>
-					<a style="color:white;display:block; margin:2px 5px 0 5px;"><span class="glyphicon glyphicon-chevron-down" style="font-size:22px;color:#F69140" ng-click="vote('down',card.question)"></span></a> 
+					<a style="color:white;display:block; margin:-16px 0 0 0;"><i class="fa fa-sort-down fa-fw" style="font-size:40px;color:#F69140;" ng-click="vote('down',card.question)"></i></a> 
 				</div>
 				</td>
 
@@ -58,11 +59,12 @@
 						<tr>
 							<td>
 							<div style="display:inline-block;text-align:center;">
-								<a style="color:white;display:block;margin:0 5px -5px 5px;">
-									<span class="glyphicon glyphicon-chevron-up" style="font-size:22px;color:#F69140;" ng-click="vote('up',card.answer)"></span>
+								<a style="color:white;display:block;margin:0 0 -16px 0;">
+									<i class="fa fa-sort-up fa-fw" style="font-size:40px;color:#F69140;" ng-click="vote('up',card.answer)"></i>
+									
 								</a>
 								<span class="label" ng-class="{'label-default': !card.answer.voted, 'label-success': card.answer.voted}" style="font-size:13px;">{{card.answer.upvote - card.answer.downvote}}</span>
-								<a style="color:white;display:block; margin:0 5px 2px 5px;"><span class="glyphicon glyphicon-chevron-down" style="font-size:22px;color:#F69140" ng-click="vote('down',card.answer)"></span></a> 
+								<a style="color:white;display:block; margin:-16px 0 0 0;"><i class="fa fa-sort-down fa-fw" style="font-size:40px;color:#F69140;" ng-click="vote('down',card.answer)"></i></a> 
 							</div>
 							</td>
 							<td>
@@ -95,7 +97,7 @@
 		<div class="clearfix"></div>
 		<div style="padding: 10px 0;">
 			<form>
-				<button type="submit" class="btn btn-primary" style="background-color:#F69140;border-color:#F69140; width:285px;" data-toggle="modal" data-target="#myModal">Ask a Question</button>
+				<button type="submit" id="btn-question" class="btn btn-primary" style="background-color:#F69140;border-color:#F69140;" data-toggle="modal" data-target="#myModal">Ask a Question</button>
 			</form>
 		</div>
 		<div class="clearfix"></div>
